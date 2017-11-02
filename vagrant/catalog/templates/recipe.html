@@ -1,0 +1,53 @@
+{% extends "main.html" %}
+{% block content %}
+	<h1>{{ category.name }}</h1>
+	<hr>
+	<br>
+	<div class = 'flash'>
+	{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endwith %}
+
+	</div>
+	<br>
+	<a href="{{url_for('newRecipeItem', category_id = category.id)}}">
+		<button id="new-recipe-item">
+			<span aria-hidden="true"></span>Add Recipe
+		</button>
+	</a>
+
+	{% if items !=[] %}
+	{% for i in items %}
+		<div class="category-list">
+			<div class="category_image">
+				<img class="category_image_style" src="{{i.picture}}"
+			onError="this.onerror=null; this.src='/static/category_free_image.svg';">
+			</div>
+			<div class="category_name">
+				<a href = "{{url_for('showRecipeItem', category_id = category.id, recipe_id = i.id )}}">
+					<h3 class="category_name_item">{{i.name}}</h3>
+				</a>
+			</div>
+			<div class="interective_board">
+				<div class="editButton">
+					<a class="link_button" href="{{url_for('editRecipeItem', category_id = i.category_id, recipe_id=i.id)}}">
+					<img class="icon_images" src="/static/edit.svg" alt="edit icon">
+					</a>
+				</div>
+				<div class="deleteButton">
+					<a class="link_button" href="{{url_for('deleteRecipeItem', category_id = i.category_id, recipe_id=i.id)}}">
+					<img class="icon_images" src="/static/delete.svg" alt="delete icon">
+					</a>
+				</div>
+			</div>
+		</div>
+	{% endfor %}
+	{% endif %}
+{% endblock %}
+

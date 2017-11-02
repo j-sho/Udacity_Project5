@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Your Food Style</title>
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic"> <!-- Change fonts -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+	<!-- change style!!!!
+	<link rel="stylesheet" href="/static/milligram.min.css">
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	-->
+	<link rel="stylesheet" href="/static/styles.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="//apis.google.com/js/platform.js?onload=start"> </script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="navigation">
+			<div class="navigation_list">
+				<div class="list_item_welcome">
+				{% if user %}
+				<img class="user_image_header" src="{{userImage}}">
+				<h1 class="title_text">Welcome, {{user}}!</h1>
+				{% else %}
+				<h1 class="title_text">Recipes</h1>
+				{% endif %}
+				</div>
+				<div class="list_item_menu">
+				<div class="list_item">
+				<a href="/categories" class="list_item_link">Categories</a>
+				</div>
+				{% if user %}
+					<div class="list_item">
+					<a href="/disconnect" class="list_item_link">Logout</a>
+					</div>
+				{% else %}
+					<div class="list_item">
+					<a href="/login" class="list_item_link">Login</a>
+					</div>
+				{% endif %}
+				</div>
+			</div>
+		</div>
+		<div class="header_picture">
+		</div>
+		<section class="content">
+			<div class="container">
+				{{access_error}}
+				{% block content %}
+				{% endblock %}
+			</div>
+		</section>
+	</div>
+	<script src="/static/script.js"></script>
+
+</body>
+</html>

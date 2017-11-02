@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+{% block content %}
+<h2> Are you sure you want to delete {{item.name}}? </h2>
+<hr>
+<br>
+<div class="recipe_image">
+    <img class="recipe_image_style" src="{{item.picture}}"
+    onError="this.onerror=null; this.src='/static/noimage.svg';">
+</div>
+<br>
+<br>
+
+<form action="#" method = 'post'>
+
+	<div class="submit_buttons_holder">
+
+        <button type="submit" class="save_button" id="submit" type="submit">
+        <img class="icon_images" src="/static/save.svg" alt="save icon"></button>
+        <a class="btn btn-default" href="/categories/{{category_id}}/recipes/{{item.id}}/"><img class="icon_images" src="/static/back.svg" alt="back icon"></a>
+    </div>
+</form>
+
+{% endblock %}

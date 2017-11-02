@@ -1,0 +1,55 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="recipe_wrapper">
+		<div class="recipe_header">
+			<div class="recipe_name">
+				<figure>
+					<h1>{{ item.name }}</h1>
+					<hr>
+					<figcaption>{{ creator.name }}</figcaption>
+				</figure>
+				<h3>Preparation time: {{item.prep_time}}</h3>
+				<h3>Likes:
+					{% if item.likes %}
+						{{item.likes}}
+					{% else %}
+						0
+					{% endif %}
+				</h3>
+				<br>
+				<br>
+			</div>
+			<div class="recipe_image">
+				<img class="recipe_image_style" src="{{item.picture}}"
+				onError="this.onerror=null; this.src='/static/noimage.svg';">
+			</div>
+		</div>
+		{% if item !=[] %}
+		<div class="recipe_holder">
+			<div class="ingridients_holder">
+				<h2>Ingridients</h2>
+				<hr>
+				<br>
+				<ul>
+				{% for i in ingridients %}
+					<li>{{i}}</li>
+					<br>
+				{% endfor %}
+				</ul>
+			</div>
+			<div class="description_holder">
+				<h2>Description</h2>
+				<hr>
+				<br>
+				<ol>
+				{% for a in description %}
+					<li>{{a}}</li>
+					<br>
+				{% endfor %}
+				</ol>
+			</div>
+		</div>
+
+		{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block content %}
+
+<h1>Edit {{category.name}}</h1>
+<hr>
+<div class="category_wrapper">
+		<form action="#" method = "post">
+			<ul class="category_form">
+				<li class="category_list_input"><label>Name<span class="required">*</span></label><input type="text" name="name" class="field-divided" id="name_input" placeholder="{{ category.name }}" /></li>
+			</ul>
+			<div class="category_image">
+				<ul class="category_form">
+    				<li><label>Image</label><input type="url" name="picture" class="field-divided" id="uploadImage" placeholder="{{category.picture}}" onchange="PreviewImage();"/></li>
+				</ul>
+				<img id="uploadPreview" class="category_image_style" src="{{category.picture}}"
+				onError="this.onerror=null; this.src='/static/category_free_image.svg';">
+			</div>
+			<div class="submit_buttons_holder">
+
+				<button type="submit" class="save_button" id="submit" type="submit">
+				<img class="icon_images" src="/static/save.svg" alt="save icon"></button>
+				<a class="btn btn-default" href="{{url_for('showCategory')}}"><img class="icon_images" src="/static/back.svg" alt="back icon"></a>
+			</div>
+		</form>
+</div>
+
+{% endblock %}

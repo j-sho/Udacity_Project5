@@ -1,0 +1,83 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="recipe_wrapper">
+		<div class="recipe_header">
+			<div class="recipe_name">
+				<figure>
+					<h1>{{ item.name }}</h1>
+					<hr>
+					<figcaption>{{ creator.name }}</figcaption>
+				</figure>
+				<h3>Preparation time: {{item.prep_time}}</h3>
+				<h3>Likes:
+					{% if likes %}
+						{{likes}}
+					{% else %}
+						0
+					{% endif %}
+				</h3>
+				<br>
+			<div class = 'flash'>
+				{% with messages = get_flashed_messages() %}
+			    {% if messages %}
+		        <ul>
+			        {% for message in messages %}
+	            <li> <strong> {{ message }} </strong> </li>
+			        {% endfor %}
+		        </ul>
+				    {% endif %}
+				    {% endwith %}
+			</div>
+			</div>
+				<br>
+			<div class="recipe_image">
+				<img class="recipe_image_style" src="{{item.picture}}"
+				onError="this.onerror=null; this.src='/static/noimage.svg';">
+			</div>
+		</div>
+		<div class="interective_board">
+			<div class="likesButton">
+				<a class="link_button" href="{{url_for('likesAdd', category_id = category_id, recipe_id = item.id)}}">
+				<img class="icon_images" src="/static/like.svg" alt="like icon">
+				</a>
+			</div>
+			<div class="editButton">
+				<a class="link_button" href="{{url_for('editRecipeItem', category_id = category_id, recipe_id = item.id )}}">
+				<img class="icon_images" src="/static/edit.svg" alt="edit icon">
+				</a>
+			</div>
+			<div class="deleteButton">
+				<a class="link_button" href="{{url_for('deleteRecipeItem', category_id = category_id, recipe_id = item.id)}}">
+				<img class="icon_images" src="/static/delete.svg" alt="delete icon">
+				</a>
+			</div>
+		</div>
+		{% if item !=[] %}
+		<div class="recipe_holder">
+			<div class="ingridients_holder">
+				<h2>Ingridients</h2>
+				<hr>
+				<br>
+				<ul>
+				{% for i in ingridients %}
+					<li>{{i}}</li>
+					<br>
+				{% endfor %}
+				</ul>
+			</div>
+			<div class="description_holder">
+				<h2>Description</h2>
+				<hr>
+				<br>
+				<ol>
+				{% for a in description %}
+					<li>{{a}}</li>
+					<br>
+				{% endfor %}
+				</ol>
+			</div>
+		</div>
+
+		{% endif %}
+	</div>
+{% endblock %}

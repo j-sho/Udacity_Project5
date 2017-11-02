@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+{% block content %}
+	<h1>{{ category.name }}</h1>
+	<hr>
+	<br>
+	<br>
+
+	{% if items !=[] %}
+	{% for i in items %}
+		<div class="category-list">
+			<div class="category_image">
+				<img class="category_image_style" src="{{i.picture}}"
+			onError="this.onerror=null; this.src='/static/category_free_image.svg';">
+			</div>
+			<div class="category_name">
+				<a href = "{{url_for('showRecipeItem', category_id = category.id, recipe_id = i.id )}}">
+					<h3 class="category_name_item">{{i.name}}</h3>
+				</a>
+			</div>
+		</div>
+	{% endfor %}
+	{% endif %}
+{% endblock %}
+
+

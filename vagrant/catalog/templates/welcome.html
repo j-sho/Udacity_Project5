@@ -1,0 +1,23 @@
+{% extends "main.html" %}
+{% block content %}
+
+<h1>Welcome to my recipe page</h1>
+<hr>
+<br>
+<div class = 'flash'>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+    {% for message in messages %}
+<li> <strong> {{ message }} </strong> </li>
+    {% endfor %}
+</ul>
+    {% endif %}
+    {% endwith %}
+    <br>
+</div>
+<br>
+<h2>You could visit <a href="/categories" class="list_item_link">categories page</a> and see all recipies.</h2><br>
+<h2>You can also share your own expirience and add your recepies,<br>just <a href="/login" class="list_item_link">sign up</a> and start!</h2>
+
+{% endblock %}

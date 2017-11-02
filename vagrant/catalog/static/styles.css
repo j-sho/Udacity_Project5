@@ -1,0 +1,396 @@
+/*
+##############################################################################
+GENERAL STYLE
+##############################################################################
+*/
+
+* {
+	font-family: "Helvetica Neue Bold", Roboto, Helvetica, Arial, sans-serif;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+}
+
+/*
+##############################################################################
+MAIN PAGE
+##############################################################################
+*/
+
+.header_picture {
+	height: 400px;
+	background-image: url("/static/top-banner_image.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+    margin-top: 5.2em;
+
+}
+
+.content {
+	min-height: 800px;
+	width: 1000px;
+	margin: 30px auto;
+	padding: 30px;
+	text-align: center;
+	border: 2px solid lightgrey;
+}
+
+.navigation {
+	display: block;
+    height: 5.2em;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    opacity: 0.8;
+}
+
+.navigation_list {
+	display: flex;
+	justify-content: space-between;
+	padding-right: 10px;
+}
+
+.list_item_menu {
+	display: flex;
+	justify-content: flex-end;
+	width: 60%;
+    line-height: 5.2rem;
+}
+
+.list_item {
+	margin-left: 15px;
+}
+
+.user_image_header {
+	max-width: 70px;
+	max-height: 70px;
+	margin: 0 10px;
+	padding: 5px 0;
+	border-radius: 50%;
+}
+
+.list_item_welcome {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.title_text {
+	margin-left: 10px;
+}
+
+/*
+##############################################################################
+CATEGORIES PAGE
+##############################################################################
+*/
+.category-list {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: 200px;
+	margin-top: 20px;
+}
+
+
+.category_image {
+	width: 200px;
+	margin-right: 50px;
+	max-height: 200px;
+	border-radius: 50%;
+}
+
+.category_image_style {
+	width: 100%;
+    height: auto;
+    max-width: 100%;
+}
+
+.category_name {
+	margin-bottom: 50px;
+	align-items: center;
+}
+
+
+
+
+
+
+/*
+##############################################################################
+EDIT CATEGORY ITEM
+##############################################################################
+*/
+h1 {
+	margin: 0;
+}
+
+.category_wrapper {
+	margin: 0 auto;
+	margin-top: 50px;
+	max-width: 500px;
+}
+
+.category_form {
+    max-width: 400px;
+    padding: 20px 0;
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-align: left;
+    list-style: none;
+}
+.category_list_input {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.category_form label{
+    margin:0 0 3px 0;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+}
+.category_form input[type=text],
+.category_form input[type=url] {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+}
+.category_form input[type=text]:focus,
+.category_form input[type=url]:focus {
+    -moz-box-shadow: 0 0 8px #88D5E9;
+    -webkit-box-shadow: 0 0 8px #88D5E9;
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+
+.submit_buttons_holder {
+	margin-top: 30px;
+}
+
+
+/*
+##############################################################################
+RECIPES LIST PAGE
+##############################################################################
+*/
+
+.image_style {
+	width: 200px;
+}
+
+.recipe-item:hover .row_button{
+    display: block;
+    text-align: center;
+}
+
+
+.editDeleteButton {
+	margin-bottom: 20px;
+}
+
+.recipe-item {
+	margin-bottom: 20px;
+}
+
+/*
+##############################################################################
+RECIPE ITEM PAGE
+##############################################################################
+*/
+
+.icon_images {
+	width: 40px;
+	height: 40px;
+	margin-left: 30px;
+}
+
+
+.recipe_header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.recipe_name h1 {
+	margin: 5px;
+}
+
+.recipe_name {
+	text-align: left;
+}
+
+h3 {
+	text-align: center;
+}
+
+figure {
+	margin-bottom: 60px;
+}
+
+.interective_board {
+	display: flex;
+}
+
+.recipe_holder {
+	margin-top: 50px;
+	display: flex;
+	text-align: left;
+	justify-content: start;
+}
+
+.ingridients_holder,
+.description_holder {
+	padding: 10px 30px;
+}
+
+.description_holder {
+	margin: 0 auto;
+}
+
+.recipe_image_style {
+	min-width: 200px;
+	max-width: 400px;
+}
+
+.recipe_image {
+	min-width: 400px;
+}
+
+/*
+##############################################################################
+EDIT RECIPE ITEM PAGE
+##############################################################################
+*/
+
+.recipe_form {
+    max-width: 400px;
+    padding: 20px 0;
+    font: 13px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    text-align: left;
+    list-style: none;
+}
+.recipe_list_input {
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+.recipe_form label{
+    margin:0 0 3px 0;
+    padding:0px;
+    display:block;
+    font-weight: bold;
+}
+.recipe_form input[type=text],
+.recipe_form input[type=time],
+.recipe_form input[type=url],
+textarea {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border:1px solid #BEBEBE;
+    padding: 7px;
+    margin:0px;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+}
+.recipe_form input[type=text]:focus,
+.recipe_form input[type=time]:focus,
+.recipe_form input[type=url]:focus,
+.recipe_form textarea:focus {
+    -moz-box-shadow: 0 0 8px #88D5E9;
+    -webkit-box-shadow: 0 0 8px #88D5E9;
+    box-shadow: 0 0 8px #88D5E9;
+    border: 1px solid #88D5E9;
+}
+.recipe_form .field-divided{
+    width: 49%;
+}
+
+.recipe_form .field-long{
+    width: 100%;
+}
+
+.recipe_form .field-textarea{
+    height: 100px;
+}
+
+.required {
+    color:red;
+}
+
+#name_input {
+	width: 300px;
+}
+
+#prep_time_input {
+	width: 50px;
+}
+
+#uploadImage {
+	width: 100%;
+}
+
+#ingridients_input {
+	width: 300px;
+	height: 100%;
+	min-height: 300px;
+	line-height: 200%;
+}
+
+#description_input {
+	width: 500px;
+	height: 100%;
+	min-height: 300px;
+	line-height: 200%;
+}
+
+.edit_recipe_holder {
+	justify-content: flex-start;
+}
+
+.save_button {
+	border: none;
+	background-color: white;
+}
+
+.submit_buttons_holder {
+	text-align: left;
+}
+
+#uploadPreview {
+	max-width: 300px;
+	max-height: 500px;
+}
+
+/*
+##############################################################################
+ FLASH MESSAGES
+##############################################################################
+*/
+
+.flash {
+	background-color: #98FB98;
+	width:100%;
+	text-decoration: none;
+
+}
+
+.flash li {
+	list-style-type: none;
+	text-align: center;
+
+}

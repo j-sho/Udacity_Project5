@@ -1,0 +1,55 @@
+{% extends "main.html" %}
+{% block content %}
+	<div class="recipe_wrapper">
+		<div class="recipe_header">
+			<div class="recipe_name">
+				<form action="#" method = "post">
+				<ul class="recipe_form">
+    				<li class="recipe_list_input"><label>Name<span class="required">*</span></label><input type="text" name="name" class="field-divided" id="name_input" placeholder="{{ item.name }}" /></li><br><br>
+    				<li class="recipe_list_input"><label>Preparation time</label><input type="text" name="prep_time" class="field-long" id="prep_time_input"
+    				placeholder="{{item.prep_time}}"/></li>
+				</ul>
+				<br>
+				<br>
+			</div>
+			<div class="recipe_image">
+				<ul class="recipe_form">
+    				<li><label>Image</label><input type="url" name="picture" class="field-divided" id="uploadImage" placeholder="{{item.picture}}" onchange="PreviewImage();"/></li>
+				</ul>
+				<img id="uploadPreview" class="recipe_image_style" src="{{item.picture}}"
+				onError="this.onerror=null; this.src='/static/noimage.svg';">
+			</div>
+		</div>
+
+		{% if item !=[] %}
+		<div class="recipe_holder edit_recipe_holder">
+			<div class="ingridients_holder edit_ingridients_holder">
+				<h2>Ingridients<span class="required">*</span></h2>
+				<hr>
+				<br>
+				<ul class="recipe_form">
+    				<li><textarea name="ingredients" id="ingridients_input" class="field-long field-textarea">{{item.ingredients}}</textarea>
+    				</li>
+				</ul>
+			</div>
+			<div class="description_holder edit_description">
+				<h2>Description<span class="required">*</span></h2>
+				<hr>
+				<br>
+				<ul class="recipe_form">
+    				<li><textarea name="description" id="description_input" class="field-long field-textarea">{{item.description}}</textarea>
+    				</li>
+				</ul>
+			</div>
+		</div>
+		<div class="submit_buttons_holder">
+
+			<button type="submit" class="save_button" id="submit" type="submit">
+			<img class="icon_images" src="/static/save.svg" alt="save icon"></button>
+			<a class="btn btn-default" href="/categories/{{category_id}}/recipes/{{item.id}}/"><img class="icon_images" src="/static/back.svg" alt="back icon"></a>
+		</div>
+		</form>
+
+		{% endif %}
+	</div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "main.html" %}
+{% block content %}
+			<h1>Categories</h1>
+			<hr>
+			<br>
+			<div class = 'flash'>
+				{% with messages = get_flashed_messages() %}
+			    {% if messages %}
+	        <ul>
+		        {% for message in messages %}
+            <li> <strong> {{ message }} </strong> </li>
+		        {% endfor %}
+	        </ul>
+			    {% endif %}
+			    {% endwith %}
+
+			</div>
+			<br>
+			<a href="/categories/new/">
+				<button id="new-category">
+					<span aria-hidden="true"></span>Add Category
+				</button>
+			</a>
+
+	{% for item in category %}
+			<div class="category-list">
+				<div class="category_image">
+					<img class="category_image_style" src="{{item.picture}}"
+				onError="this.onerror=null; this.src='/static/category_free_image.svg';">
+				</div>
+				<div class="category_name">
+					<a href = "{{url_for('showRecipe', category_id = item.id )}}">
+						<h3 class="category_name_item">{{item.name}}</h3>
+					</a>
+				</div>
+				<div class="interective_board">
+					<div class="editButton">
+						<a class="link_button" href="/categories/{{item.id}}/edit/">
+						<img class="icon_images" src="/static/edit.svg" alt="edit icon">
+						</a>
+					</div>
+					<div class="deleteButton">
+						<a class="link_button" href="/categories/{{item.id}}/delete/">
+						<img class="icon_images" src="/static/delete.svg" alt="delete icon">
+						</a>
+					</div>
+				</div>
+			</div>
+	{% endfor %}
+{% endblock %}
