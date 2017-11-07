@@ -15,16 +15,16 @@ This application provides a list of items within a variety of categories as well
 8. Click create client ID
 9. Click download JSON and save it into the root director of this project
 10. Rename the JSON file "client_secret.json"
-11. In main.html replace the line "data-clientid="" so that it uses your Client ID from the web applciation
+11. In temlates/login.html replace the line "data-clientid="" so that it uses your Client ID from the web applciation
 
 ### Steps to set up a Facebook auth application
 1. go to https://developers.facebook.com/
+2. create App
 2. go to your app on the Facebook Developers Page
-3. click Settings in the left column
-4. click Advanced
-5. scroll down to the Client OAuth Settings section
-6. add http://localhost:5000/ to the Valid OAuth redirect URIs section
-7. create fb_client_secrets.json:
+3. click Facebook Login/Settings in the left column
+4. scroll down to the Client OAuth Settings section
+5. add http://localhost:8080/, http://0.0.0.0:8080/ to the Valid OAuth redirect URIs section
+6. create fb_client_secrets.json:
 ```
 {
   "web": {
@@ -39,8 +39,8 @@ This application provides a list of items within a variety of categories as well
 2. The vagrant machine will install
 3. Once it's complete, type vagrant ssh to login to the VM
 4. In the vm, cd /vagrant
-5. type "pyhon install_db.py" this will create the database with the categories defined in that script
-6. type "python item_catalog.py" to start the server
+5. type "python db/__init__.py" this will create the database with the categories defined in that script
+6. type "python application.py" to start the server
 
 
 ### Open in a webpage
